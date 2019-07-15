@@ -42,11 +42,26 @@ config BR2_PACKAGE_RPI_FIRMWARE_CD
 
 endchoice
 
+
 config BR2_PACKAGE_RPI_FIRMWARE_BOOT
 	string
 	default ""      if BR2_PACKAGE_RPI_FIRMWARE_DEFAULT
 	default "_x"    if BR2_PACKAGE_RPI_FIRMWARE_X
 	default "_cd"   if BR2_PACKAGE_RPI_FIRMWARE_CD
+
+config BR2_PACKAGE_RPI_FIRMWARE_PI4
+	bool "Install Raspberry Pi 4 Support Files"
+	default n
+	help
+	  Enable this to copy Raspberry Pi 4 bootloader files
+
+
+config BR2_PACKAGE_RPI_FIRMWARE_PI3
+	bool "Install Raspberry Pi 3 (and older) support files"
+	default y
+	help
+	  Enable this to copy Raspberry Pi 3 (2, 1, Zero) support files" 
+
 
 config BR2_PACKAGE_RPI_FIRMWARE_INSTALL_DTBS
 	bool "Install Device Tree Blobs (DTBs)"
